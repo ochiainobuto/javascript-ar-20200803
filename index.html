@@ -13,8 +13,7 @@
 <body style="margin : 0px; overflow: hidden">
     <!-- AR.jsのデバックとA-FrameのVRボタンを非表示 -->
     <a-scene embedded arjs="debugUIEnabled: false" vr-mode-ui="enabled: false">
-        <a-light type="directional" color="#FFF" intensity="0.5" position="-1 1 2"></a-light>
-        <a-light type="ambient" color="#FFF"></a-light>
+        <a-entity light="type: directional; color: #fff; castShadow:true;"position="-10 10 10"></a-entity>
         
         <a-assets>
             <a-asset-item id="uribo" src="man.gltf"></a-asset-item>
