@@ -14,6 +14,7 @@
     <!-- AR.jsのデバックとA-FrameのVRボタンを非表示 -->
     <a-scene embedded arjs="debugUIEnabled: false" antialias: true; colorManagement: true; sortObjects: true;
         physicallyCorrectLights: true; renderer=" gammaOutput: true;" vr-mode-ui="enabled: false">
+
         <a-light type="ambient" color="#ffffff"></a-light>
         <a-light type="point" intensity="2" position="0 5 5"></a-light>
         <a-entity light="type: directional; color: #EEE; intensity: 2" position="-5 0 0"></a-entity>
@@ -25,10 +26,15 @@
 
         <a-assets>
             <a-asset-item id="fish1" src="Fish_lp.glb"></a-asset-item>
+            <a-asset-item id="tooth" src="tooth_01.glb"></a-asset-item>
         </a-assets>
         <!-- a-markerのtypeにpatternを設定, 作ったpattファイルをurlにを指定 -->
         <a-marker type="pattern" url="pattern-url.patt">
             <a-entity gltf-model="#fish1" scale="0.1 0.1 0.1" animation-mixer></a-entity>
+        </a-marker>
+
+        <a-marker type="pattern" url="pattern-tooth.patt">
+            <a-entity gltf-model="#tooth" scale="0.1 0.1 0.1" animation-mixer></a-entity>
         </a-marker>
 
         <a-entity camera>
