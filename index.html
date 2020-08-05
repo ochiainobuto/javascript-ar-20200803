@@ -23,7 +23,13 @@
         <a-marker type="pattern" url="pattern-url.patt">
             <a-entity gltf-model="#uribo" scale="0.1 0.1 0.1" animation-mixer></a-entity>
         </a-marker>
-        <a-entity camera></a-entity>
+        <a-entity camera>
+          <a-entity cursor="fuse: true; maxDistance: 30; timeout: 500"
+                    position="0 0 -5"
+                    geometry="primitive: ring"
+                    material="color: white; shader: flat">
+          </a-entity>
+        </a-entity>
     </a-scene>
 </body>
 
