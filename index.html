@@ -12,7 +12,7 @@
 
 <body style="margin : 0px; overflow: hidden">
     <!-- AR.jsのデバックとA-FrameのVRボタンを非表示 -->
-    <a-scene embedded arjs="debugUIEnabled:false;">
+    <a-scene embedded arjs="debugUIEnabled:true;">
 
         <a-light type="ambient" color="#ffffff"></a-light>
         <a-light type="point" intensity="2" position="0 5 5"></a-light>
@@ -29,11 +29,11 @@
         </a-assets>
 
         <a-marker preset="custom" type="pattern" url="pattern-url.patt">
-            <a-entity gltf-model="#fish1" scale="0.1 0.1 0.1" animation-mixer></a-entity>
+            <a-gltf-model src="#fish1" scale="0.1 0.1 0.1" animation-mixer></a-gltf-model>
         </a-marker>
 
         <a-marker preset="custom" type="pattern" url="pattern-tooth.patt">
-            <a-entity gltf-model="#tooth" scale="0.1 0.1 0.1"></a-entity>
+            <a-gltf-model src="#tooth" scale="0.1 0.1 0.1"></a-gltf-model>
         </a-marker>
 
         <a-entity camera>
