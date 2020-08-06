@@ -13,7 +13,7 @@
 
 <body style="margin : 0px; overflow: hidden">
     <!-- AR.jsのデバックとA-FrameのVRボタンを非表示 -->
-    <a-scene embedded arjs="debugUIEnabled:true;">
+    <a-scene embedded arjs="debugUIEnabled:false; antialias: true;">
 
         <a-light type="ambient" color="#ffffff"></a-light>
         <a-light type="point" intensity="2" position="0 5 5"></a-light>
@@ -31,7 +31,7 @@
             <a-entity gltf-model="#fish1" position="0 0 0" scale="0.1 0.1 0.1" animation-mixer></a-entity>
         </a-marker>
 
-        <a-marker preset="custom" type="pattern" url="./pattern-tooth.patt">
+        <a-marker preset="custom" type="pattern" url="./pattern-fish2.patt">
             <a-entity gltf-model="#fish2" position="0 0 0" scale="0.1 0.1 0.1" animation-mixer></a-entity>
         </a-marker>
 
