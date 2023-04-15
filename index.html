@@ -13,14 +13,10 @@
 
 <body style="margin : 0px; overflow: hidden">
     <!-- AR.jsのデバックとA-FrameのVRボタンを非表示 -->
-    <a-scene embedded arjs="debugUIEnabled:false; antialias: true;">
+    <a-scene embedded arjs="debugUIEnabled:false; antialias: true; stats loading-screen="dotsColor: gray; backgroundColor: lightgray" light="defaultLightsEnabled: false">
+        <a-light type="point" intensity="1.0" position="0 5 5"></a-light>
+        <a-entity light="type: ambient; color: #ffffff; intensity: 1.0" position="-1 1 0"></a-entity>
 
-        <a-light type="ambient" color="#ffffff"></a-light>
-        <a-light type="point" intensity="2" position="0 5 5"></a-light>
-        <a-entity light="type: directional; color: #EEE; intensity: 0.5" position="-5 0 0"></a-entity>
-        <a-entity light="type: directional; color: #EEE; intensity: 0.5" position="5 0 0"></a-entity>
-        <a-entity light="type: directional; color: #EEE; intensity: 0.5" position="0 -5 0"></a-entity>
-        <a-entity light="type: directional; color: #EEE; intensity: 0.5" position="0 5 0"></a-entity>
         <a-plane id="ground" position="0 0 0" rotation="-90 0 0" width="50" height="50" material="shader: shadow"
             shadow>
         </a-plane>
