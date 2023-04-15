@@ -14,14 +14,15 @@
 <body style="margin : 0px; overflow: hidden">
     <!-- AR.jsのデバックとA-FrameのVRボタンを非表示 -->
     <a-scene embedded arjs="debugUIEnabled:false; antialias: true;">
-        <a-light type="point" intensity="1.0" position="0 5 5"></a-light>
-        <a-entity light="type: ambient; color: #ffffff; intensity: 1.0" position="-1 1 0"></a-entity>
+        <a-light type="point" intensity="0.8" position="0 5 5"></a-light>
+        <a-entity light="type: ambient; color: #ffffff; intensity: 0.6" position="-1 1 0"></a-entity>
 
         <a-plane id="ground" position="0 0 0" rotation="-90 0 0" width="50" height="50" material="shader: shadow"
             shadow>
         </a-plane>
 
     <a-assets>
+        <img id="sky" src="Environment.png">
         <a-asset-item id="fish1" src="mezamasi_anim.glb"></a-asset-item>
         <a-asset-item id="fish2" src="Fish_lp2.glb"></a-asset-item>
     </a-assets>
