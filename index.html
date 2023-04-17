@@ -2,42 +2,45 @@
 <html>
 
 <head>
-    <!-- A-Frameを読み込み -->
-    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <!-- AR.jsを読み込み -->
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
-    <!-- glTFに含まれたアニメーションを再生するためにaframe-extrasをロード -->
-    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
-
+    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script><!-- Master file for aframe (== a-scene) -->
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script><!-- webcam/mobilecam --> 
+    <script src="https://mkwy.fr/js/play-all-model-animations.js"></script><!-- animation -->
+    <script src="https://mkwy.fr/js/aframe-orbit-controls.min.js"></script><!-- orbit cam around target -->
+    <script src="https://mkwy.fr/js/aframe-extras.js"></script><!-- cub-env-map -->
 </head>
 
 <body style="margin : 0px; overflow: hidden">
     <!-- AR.jsのデバックとA-FrameのVRボタンを非表示 -->
-    <a-scene embedded arjs="debugUIEnabled:false; antialias: true;">
+    <a-scene embedded arjs="debugUIEnabled:false;" renderer="gammaOutput: true;" vr-mode-ui="enabled: false">
         <a-light type="point" intensity="0.8" position="0 5 5"></a-light>
         <a-entity light="type: ambient; color: #ffffff; intensity: 0.6" position="-1 1 0"></a-entity>
 
-        <a-plane id="ground" position="0 0 0" rotation="-90 0 0" width="50" height="50" material="shader: shadow"
+        <a-assets>
+            <img id="sky" src="Environment.png">
+            <a-asset-item id="mezamasikun" src="mezamasi_anim.gltf"></a-asset-item>
+            <a-asset-item id="fish2" src="Fish_lp2.glb"></a-asset-item>
+        </a-assets>
+
+        <a-entity gltf-model="#mezamasikun" 
+            position="0 -0.5 -3" 
+            scale="10.0 10.0 10.0" 
+            animation-mixer 
+            reflections="type: realtime" 
+            cube-env-map="path: cubemap/; extension: jpg; reflectivity: 0.1;"
             shadow>
-        </a-plane>
+        </a-entity>
 
-    <a-assets>
-        <img id="sky" src="Environment.png">
-        <a-asset-item id="fish1" src="mezamasi_anim.glb"></a-asset-item>
-        <a-asset-item id="fish2" src="Fish_lp2.glb"></a-asset-item>
-    </a-assets>
+        <a-marker preset="custom" type="pattern" url="./pattern-QR_aframear.patt">
+            <a-entity gltf-model="#mezamasikun" position="0 0 0" scale="10.0 10.0 10.0" animation-mixer reflections="type: realtime" shadow></a-entity>
+        </a-marker>
 
-    <a-marker preset="custom" type="pattern" url="./pattern-QR_aframear.patt">
-        <a-entity gltf-model="#fish1" position="0 0 0" scale="0.1 0.1 0.1" animation-mixer></a-entity>
-    </a-marker>
+        <a-marker preset="custom" type="pattern" url="./pattern-fish2.patt">
+            <a-entity gltf-model="#fish2" position="0 0 0" scale="0.1 0.1 0.1" animation-mixer></a-entity>
+        </a-marker>
 
-    <a-marker preset="custom" type="pattern" url="./pattern-fish2.patt">
-        <a-entity gltf-model="#fish2" position="0 0 0" scale="0.1 0.1 0.1" animation-mixer></a-entity>
-    </a-marker>
+        <a-entity camera>
 
-    <a-entity camera>
-
-    </a-entity>
+        </a-entity>
 
     </a-scene>
 </body>
